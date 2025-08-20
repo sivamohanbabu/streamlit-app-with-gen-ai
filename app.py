@@ -1,6 +1,7 @@
 import streamlit as st
 import sqlite3
 from streamlit_option_menu import option_menu
+from expense_app import expense_tracker  # Import your expense tracker
 
 # Database setup
 def init_db():
@@ -97,8 +98,8 @@ def chat_with_ai():
 with st.sidebar:
     selected = option_menu(
         "Main Menu",
-        ["Home", 'Sign IN', 'Sign UP', 'Contact Us', 'Chat'],
-        icons=['house', 'box-arrow-in-right', 'person-add', 'envelope', 'chat'],
+        ["Home", 'Sign IN', 'Sign UP', 'Contact Us', 'Chat', 'Expense Tracker'],
+        icons=['house', 'box-arrow-in-right', 'person-add', 'envelope', 'chat', 'cash'],
         menu_icon="cast",
         default_index=0
     )
@@ -113,3 +114,5 @@ elif selected == 'Contact Us':
     contact_us()
 elif selected == 'Chat':
     chat_with_ai()
+elif selected == 'Expense Tracker':
+    expense_tracker()
